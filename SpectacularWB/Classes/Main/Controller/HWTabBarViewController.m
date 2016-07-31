@@ -95,7 +95,9 @@
 {
     HWComposeViewController *composeViewController = [[HWComposeViewController alloc] init];
 //    vc.view.backgroundColor = [UIColor redColor];
+    
     HWNavigationController *  navigationController=[[HWNavigationController alloc]initWithRootViewController:composeViewController];
+    
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 
