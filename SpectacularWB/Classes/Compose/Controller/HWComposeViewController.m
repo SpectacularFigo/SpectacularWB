@@ -8,30 +8,30 @@
 
 #import "HWComposeViewController.h"
 #import "UIView+Extension.h"
-
 #import "HWComposeViewController.h"
 #import "HWComposeTextView.h"
 #import "HWAccountTool.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
+#import "HWComposeToolBarView.h"
 @interface HWComposeViewController()
 @property(nonatomic, weak) UITextView*composetextView;
+@property(nonatomic, weak) HWComposeToolBarView*composeToolBar;
 @end
 @implementation HWComposeViewController
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self setUpNav];
-    
     self.view.backgroundColor=[UIColor whiteColor];
-    
-    
+    [self setUpNav];
     [self setupTextView];
+    [self setupToolBar];
     
     
     [[NSNotificationCenter defaultCenter ]addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self.composetextView];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidAppear:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
 -(void)setUpNav
@@ -104,6 +104,24 @@
 }
 
 
+-(void)setupToolBar
+{
+    
+    HWComposeToolBarView *composeToolBarView=[[HWComposeToolBarView alloc]init];
+    composeToolBarView.height=44;
+    composeToolBarView.x=0;
+    composeToolBarView.y=self.view.height-composeToolBarView.height;
+    composeToolBarView.width=self.view.width;
+    self.composeToolBar=composeToolBarView;
+    [self.view addSubview:composeToolBarView];
+    
+    
+    
+    
+}
+
+
+#pragma mark - 监听取消按钮点击事件
 
 -(void)cancelButtonDidClick:(UIBarButtonItem*)barButtonItem
 {
@@ -112,6 +130,28 @@
     
     
 }
+
+
+#pragma mark - 监听键盘出现事件
+-(void)keyboardDidAppear:(NSNotification*)notification
+{
+    
+    NSLog(@"%@",notification.userInfo);
+    
+    NSDictionary * dic=notification.userInfo;
+    
+    NSTimeInterval timeInterval=[dic[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardFrame=[dic[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    [UIView animateWithDuration:timeInterval animations:^{
+        self.composeToolBar.y=keyboardFrame.origin.y-self.composeToolBar.height;
+    }];
+    
+
+    
+    
+}
+
 
 
 -(void)tweetButtonDidClick:(UIBarButtonItem*)barButtonItem
