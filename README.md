@@ -12,4 +12,4 @@ Password: figo2014
 
 GIF 
 ----------------------------------- 
-![SpecataularWB](https://github.com/SpectacularFigo/SpectacularWB/blob/master/project.gif)
+![SpecataularWB](https://github.com/SpectacularFigo/SpectacularWB/blob/master/SpectacularWB.gif)
