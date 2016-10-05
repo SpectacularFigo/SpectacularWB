@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2842E30D1DA34BBE005077C7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2842E3021DA34BBE005077C7 /* FMDatabase.m */; };
+		2842E30E1DA34BBE005077C7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2842E3041DA34BBE005077C7 /* FMDatabaseAdditions.m */; };
+		2842E30F1DA34BBE005077C7 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2842E3061DA34BBE005077C7 /* FMDatabasePool.m */; };
+		2842E3101DA34BBE005077C7 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2842E3081DA34BBE005077C7 /* FMDatabaseQueue.m */; };
+		2842E3111DA34BBE005077C7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2842E30B1DA34BBE005077C7 /* FMResultSet.m */; };
+		2842E36E1DA35694005077C7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2842E36D1DA35694005077C7 /* libsqlite3.0.tbd */; };
+		285D1BD61DA4BE1C00A61D89 /* HWProfileTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D1BD51DA4BE1C00A61D89 /* HWProfileTableView.m */; };
 		288D93851D334ED700454C45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 288D93841D334ED700454C45 /* main.m */; };
 		288D93901D334ED700454C45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 288D938F1D334ED700454C45 /* Assets.xcassets */; };
 		288D93931D334ED700454C45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 288D93911D334ED700454C45 /* LaunchScreen.storyboard */; };
@@ -86,9 +93,25 @@
 		288D94AA1D33635B00454C45 /* HWTest2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288D94A21D33635B00454C45 /* HWTest2ViewController.xib */; };
 		288D94AB1D33635B00454C45 /* HWTest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288D94A41D33635B00454C45 /* HWTest3ViewController.m */; };
 		288D94AC1D33635B00454C45 /* HWTest3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288D94A51D33635B00454C45 /* HWTest3ViewController.xib */; };
+		289BBEB81DA539EB002A3F7C /* tableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289BBEB71DA539EB002A3F7C /* tableView.xib */; };
+		28F2C1C71DA33E5500503753 /* HWStatusOfflineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F2C1C61DA33E5500503753 /* HWStatusOfflineTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2842E3011DA34BBE005077C7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		2842E3021DA34BBE005077C7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		2842E3031DA34BBE005077C7 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		2842E3041DA34BBE005077C7 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		2842E3051DA34BBE005077C7 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		2842E3061DA34BBE005077C7 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		2842E3071DA34BBE005077C7 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		2842E3081DA34BBE005077C7 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		2842E3091DA34BBE005077C7 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		2842E30A1DA34BBE005077C7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		2842E30B1DA34BBE005077C7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		2842E36D1DA35694005077C7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		285D1BD41DA4BE1C00A61D89 /* HWProfileTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWProfileTableView.h; sourceTree = "<group>"; };
+		285D1BD51DA4BE1C00A61D89 /* HWProfileTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWProfileTableView.m; sourceTree = "<group>"; };
 		288D93801D334ED700454C45 /* SpectacularWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpectacularWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288D93841D334ED700454C45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		288D938F1D334ED700454C45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -244,6 +267,9 @@
 		288D94A31D33635B00454C45 /* HWTest3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTest3ViewController.h; sourceTree = "<group>"; };
 		288D94A41D33635B00454C45 /* HWTest3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTest3ViewController.m; sourceTree = "<group>"; };
 		288D94A51D33635B00454C45 /* HWTest3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWTest3ViewController.xib; sourceTree = "<group>"; };
+		289BBEB71DA539EB002A3F7C /* tableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableView.xib; sourceTree = "<group>"; };
+		28F2C1C51DA33E5500503753 /* HWStatusOfflineTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusOfflineTool.h; sourceTree = "<group>"; };
+		28F2C1C61DA33E5500503753 /* HWStatusOfflineTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusOfflineTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,17 +277,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2842E36E1DA35694005077C7 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2842E3001DA34BBE005077C7 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				2842E3011DA34BBE005077C7 /* FMDatabase.h */,
+				2842E3021DA34BBE005077C7 /* FMDatabase.m */,
+				2842E3031DA34BBE005077C7 /* FMDatabaseAdditions.h */,
+				2842E3041DA34BBE005077C7 /* FMDatabaseAdditions.m */,
+				2842E3051DA34BBE005077C7 /* FMDatabasePool.h */,
+				2842E3061DA34BBE005077C7 /* FMDatabasePool.m */,
+				2842E3071DA34BBE005077C7 /* FMDatabaseQueue.h */,
+				2842E3081DA34BBE005077C7 /* FMDatabaseQueue.m */,
+				2842E3091DA34BBE005077C7 /* FMDB.h */,
+				2842E30A1DA34BBE005077C7 /* FMResultSet.h */,
+				2842E30B1DA34BBE005077C7 /* FMResultSet.m */,
+			);
+			name = fmdb;
+			path = "../../../../../../../../../Downloads/iOS/fmdb-master/src/fmdb";
+			sourceTree = "<group>";
+		};
+		2842E36C1DA35694005077C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2842E36D1DA35694005077C7 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		285D1BD31DA4BE0300A61D89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				285D1BD41DA4BE1C00A61D89 /* HWProfileTableView.h */,
+				285D1BD51DA4BE1C00A61D89 /* HWProfileTableView.m */,
+				289BBEB71DA539EB002A3F7C /* tableView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		288D93771D334ED700454C45 = {
 			isa = PBXGroup;
 			children = (
 				288D93821D334ED700454C45 /* SpectacularWB */,
 				288D93811D334ED700454C45 /* Products */,
+				2842E36C1DA35694005077C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -369,6 +434,7 @@
 		288D93A81D335E0900454C45 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				28F2C1C41DA33E3100503753 /* Tool */,
 				288D947A1D33628F00454C45 /* View */,
 				288D93A91D335E0900454C45 /* Controller */,
 				288D93AA1D335E0900454C45 /* Model */,
@@ -426,6 +492,7 @@
 		288D93AE1D335E0900454C45 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				2842E3001DA34BBE005077C7 /* fmdb */,
 				288D93C31D335F1600454C45 /* AFNetworking */,
 				288D93D71D335F1600454C45 /* MBProgressHUD */,
 				288D93DD1D335F1600454C45 /* MJExtension */,
@@ -531,9 +598,8 @@
 		288D93B91D335E0900454C45 /* Profile (Me) */ = {
 			isa = PBXGroup;
 			children = (
+				285D1BD31DA4BE0300A61D89 /* View */,
 				288D94951D33634200454C45 /* Controller */,
-				288D94961D33634200454C45 /* Model */,
-				288D94971D33634200454C45 /* View */,
 			);
 			path = "Profile (Me)";
 			sourceTree = "<group>";
@@ -692,9 +758,9 @@
 				288D947F1D33629900454C45 /* HWLoadMoreFooter.h */,
 				288D94801D33629900454C45 /* HWLoadMoreFooter.m */,
 				288D94811D33629900454C45 /* HWLoadMoreFooter.xib */,
-				288D94821D33629900454C45 /* HWStatusCell.h */,
 				288D94831D33629900454C45 /* HWStatusCell.m */,
 				288D94841D33629900454C45 /* HWStatusToolBar.h */,
+				288D94821D33629900454C45 /* HWStatusCell.h */,
 				288D94851D33629900454C45 /* HWStatusToolBar.m */,
 			);
 			path = View;
@@ -732,18 +798,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		288D94961D33634200454C45 /* Model */ = {
+		28F2C1C41DA33E3100503753 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				28F2C1C51DA33E5500503753 /* HWStatusOfflineTool.h */,
+				28F2C1C61DA33E5500503753 /* HWStatusOfflineTool.m */,
 			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		288D94971D33634200454C45 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
+			name = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -806,6 +867,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				288D94AC1D33635B00454C45 /* HWTest3ViewController.xib in Resources */,
+				289BBEB81DA539EB002A3F7C /* tableView.xib in Resources */,
 				288D94A81D33635B00454C45 /* HWTest1ViewController.xib in Resources */,
 				288D93931D334ED700454C45 /* LaunchScreen.storyboard in Resources */,
 				288D93901D334ED700454C45 /* Assets.xcassets in Resources */,
@@ -828,7 +890,9 @@
 				288D94371D335F1600454C45 /* UIButton+WebCache.m in Sources */,
 				288D94871D33629900454C45 /* HWTitleButton.m in Sources */,
 				288D94781D33626B00454C45 /* HWStatusFrame.m in Sources */,
+				2842E3111DA34BBE005077C7 /* FMResultSet.m in Sources */,
 				288D94421D335F6A00454C45 /* HWNavigationController.m in Sources */,
+				285D1BD61DA4BE1C00A61D89 /* HWProfileTableView.m in Sources */,
 				288D94861D33629900454C45 /* HWTitleMenuViewController.m in Sources */,
 				288D94351D335F1600454C45 /* SDWebImageManager.m in Sources */,
 				288D94A91D33635B00454C45 /* HWTest2ViewController.m in Sources */,
@@ -836,11 +900,14 @@
 				288D941D1D335F1600454C45 /* AFURLRequestSerialization.m in Sources */,
 				288D941C1D335F1600454C45 /* AFURLConnectionOperation.m in Sources */,
 				288D948A1D33629900454C45 /* HWStatusCell.m in Sources */,
+				28F2C1C71DA33E5500503753 /* HWStatusOfflineTool.m in Sources */,
+				2842E30D1DA34BBE005077C7 /* FMDatabase.m in Sources */,
 				288D948B1D33629900454C45 /* HWStatusToolBar.m in Sources */,
 				288D94331D335F1600454C45 /* SDWebImageDownloader.m in Sources */,
 				288D941B1D335F1600454C45 /* AFSecurityPolicy.m in Sources */,
 				288D94311D335F1600454C45 /* SDWebImageCompat.m in Sources */,
 				288D944E1D33619200454C45 /* HWSearchBar.m in Sources */,
+				2842E30F1DA34BBE005077C7 /* FMDatabasePool.m in Sources */,
 				288D94AB1D33635B00454C45 /* HWTest3ViewController.m in Sources */,
 				288D94271D335F1600454C45 /* MJMember.m in Sources */,
 				288D94241D335F1600454C45 /* MJConst.m in Sources */,
@@ -849,6 +916,7 @@
 				288D943D1D335F1600454C45 /* UIView+WebCacheOperation.m in Sources */,
 				288D94171D335F1600454C45 /* AFHTTPRequestOperation.m in Sources */,
 				288D942A1D335F1600454C45 /* MJTypeEncoding.m in Sources */,
+				2842E30E1DA34BBE005077C7 /* FMDatabaseAdditions.m in Sources */,
 				288D943C1D335F1600454C45 /* UIImageView+WebCache.m in Sources */,
 				288D943A1D335F1600454C45 /* UIImage+WebP.m in Sources */,
 				288D94671D33624900454C45 /* HWAccount.m in Sources */,
@@ -870,6 +938,7 @@
 				288D943B1D335F1600454C45 /* UIImageView+HighlightedWebCache.m in Sources */,
 				288D94281D335F1600454C45 /* MJMethod.m in Sources */,
 				288D941E1D335F1600454C45 /* AFURLResponseSerialization.m in Sources */,
+				2842E3101DA34BBE005077C7 /* FMDatabaseQueue.m in Sources */,
 				288D946A1D33625300454C45 /* HWOAuthViewController.m in Sources */,
 				288D93C21D335ECE00454C45 /* HWComposeViewController.m in Sources */,
 				288D949A1D33634D00454C45 /* HWProfileViewController.m in Sources */,
@@ -1000,6 +1069,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Figo.SpectacularWB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1012,6 +1082,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Figo.SpectacularWB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

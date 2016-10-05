@@ -15,6 +15,7 @@
 #import "HWStatusFrame.h"
 #import "UIView+Extension.h"
 #import "UIBarButtonItem+Extension.h"
+#import "HWStatusOfflineTool.h"
 @interface HWHomeViewController () <HWDropdownMenuDelegate>
 /**
  *  微博数组（里面放的都是HWStatusFrame模型，一个HWStatusFrame对象就代表一条微博）
@@ -203,6 +204,32 @@
  */
 - (void)loadNewStatus:(UIRefreshControl *)control
 {
+    
+    // 将一些常用的代码整理在一起，形成一段block 这样就是能够重复使用，但是要记住block只是局部变量
+    
+    void(^dealingResult)(NSArray*)=^(NSArray * statuses)
+    {
+                // 将 "微博字典"数组 转为 "微博模型"数组
+                NSArray *newStatuses = [HWStatus objectArrayWithKeyValuesArray:statuses];
+        
+                // 将 HWStatus数组 转为 HWStatusFrame数组
+                NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
+        
+                // 将最新的微博数据，添加到总数组的最前面
+                NSRange range = NSMakeRange(0, newFrames.count);
+                NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+                [self.statusFrames insertObjects:newFrames atIndexes:set];
+        
+                // 刷新表格 重新调用tableView的那几个数据源和代理方法
+                [self.tableView reloadData];
+        
+                // 结束刷新
+                [control endRefreshing];
+                
+                // 显示最新微博的数量
+                [self showNewStatusCount:newStatuses.count];
+    };
+    
     // 1.请求管理者
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
@@ -218,40 +245,32 @@
         // 若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0
         params[@"since_id"] = firstStatusF.status.idstr;
     }
+    // 3. 判断数据库中是否有大于或者等于的since_id的status，如果有就是数据库中新的微博，如果没有就是数据库中没有现成的微博，需要发送网络请求
+    NSArray * databaseReturnedData=[HWStatusOfflineTool offineStatusWithDictionary:params];
     
-    // 3.发送请求
-    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        // NSLog(@"%@", responseObject);
-        
-        // 将 "微博字典"数组 转为 "微博模型"数组
-        NSArray *newStatuses = [HWStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        
-        // 将 HWStatus数组 转为 HWStatusFrame数组
-        NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
-        
-        // 将最新的微博数据，添加到总数组的最前面
-        NSRange range = NSMakeRange(0, newFrames.count);
-        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statusFrames insertObjects:newFrames atIndexes:set];
-        
-        // 刷新表格 重新调用tableView的那几个数据源和代理方法
-        [self.tableView reloadData];
-        
-        // 结束刷新
-        [control endRefreshing];
-        
-        // 显示最新微博的数量
-        [self showNewStatusCount:newStatuses.count];
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        
-        //        HWLog(@"请求失败-%@", error);
-        
-        // 结束刷新刷新
-        [control endRefreshing];
-    }];
+    if (databaseReturnedData.count) {
+        dealingResult(databaseReturnedData);
+    }
+    else{
+        // 3.发送请求
+        [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+            // NSLog(@"%@", responseObject);
+            
+            //1. 请求完数据先将数据存储在数据中
+            [HWStatusOfflineTool saveStatus:[responseObject objectForKey:@"statuses"]];
+            // 2.
+            dealingResult([responseObject objectForKey:@"statuses"]);
+
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            
+            // HWLog(@"请求失败-%@", error);
+            
+            // 结束刷新刷新
+            [control endRefreshing];
+        }];
+    }
+
 }
 
 /**

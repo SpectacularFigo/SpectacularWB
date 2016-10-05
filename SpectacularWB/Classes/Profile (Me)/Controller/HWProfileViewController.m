@@ -2,12 +2,16 @@
 
 #import "HWProfileViewController.h"
 #import "HWTest1ViewController.h"
-
+#import "SDImageCache.h"
+#import "MBProgressHUD+MJ.h"
 @interface HWProfileViewController ()
 @end
-
+@interface HWProfileViewController()
+@property(nonatomic,strong)SDImageCache * imageCacher;
+@end
 @implementation HWProfileViewController
 
+#warning static 只能用于常量？
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -20,15 +24,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.imageCacher=[SDImageCache sharedImageCache];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Clear Caches" style:UIBarButtonItemStylePlain target:self action:@selector(clearCaches)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Setting" style:0 target:self action:@selector(setting)];
+    // 获取图片缓存的大小
+    int byteSize =[self.imageCacher getSize];
+    // M大小
+    double size = byteSize / 1000.0 / 1000.0;
+    // 设置标题
+    self.navigationItem.title = [NSString stringWithFormat:@"Amount Caches(%.1fM)", size];
+
+
 }
 
-- (void)setting
+
+-(void)clearCaches
 {
-    HWTest1ViewController *test1 = [[HWTest1ViewController alloc] init];
-    test1.title = @"test1";
-    [self.navigationController pushViewController:test1 animated:YES];
+    UIActivityIndicatorView * indicateView=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    [indicateView startAnimating];
+    
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:indicateView];
+    /**清理图片缓存的步骤  */
+    
+    //1. singleton
+//    SDImageCache * imageCacher=[SDImageCache sharedImageCache];
+    
+    
+    //2. clear disk cache
+    
+    [self.imageCacher clearDisk];
+   
+    [MBProgressHUD showSuccess:@"Clear Caches Succesfully"];
+    
+    
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Clear Caches" style:UIBarButtonItemStylePlain target:self action:@selector(clearCaches)];
 }
 
 #pragma mark - Table view data source
